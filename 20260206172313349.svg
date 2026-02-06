@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="550" viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bpeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667EEA"/>
+      <stop offset="100%" style="stop-color:#764BA2"/>
+    </linearGradient>
+    <linearGradient id="wpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F093FB"/>
+      <stop offset="100%" style="stop-color:#F5576C"/>
+    </linearGradient>
+    <linearGradient id="uniGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998E"/>
+      <stop offset="100%" style="stop-color:#38EF7D"/>
+    </linearGradient>
+    <linearGradient id="spGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FA709A"/>
+      <stop offset="100%" style="stop-color:#FEE140"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">四大分词算法对比</text>
+  <text x="450" y="62" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">BPE · WordPiece · Unigram · SentencePiece</text>
+
+  <!-- BPE Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="30" y="90" width="200" height="280" rx="12" fill="#fff"/>
+    <rect x="30" y="90" width="200" height="50" rx="12" fill="url(#bpeGrad)"/>
+    <rect x="30" y="128" width="200" height="12" fill="url(#bpeGrad)"/>
+    <text x="130" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">BPE</text>
+
+    <text x="50" y="165" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">代表模型</text>
+    <text x="50" y="182" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">GPT-2/3/4, LLaMA, Qwen</text>
+
+    <text x="50" y="205" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">核心思想</text>
+    <text x="50" y="222" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">频率驱动的子词合并</text>
+    <text x="50" y="236" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">自底向上贪心合并</text>
+
+    <text x="50" y="259" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">词表大小</text>
+    <text x="50" y="276" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">32K - 128K</text>
+
+    <text x="50" y="299" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">特点</text>
+    <text x="50" y="316" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 训练简单高效</text>
+    <text x="50" y="330" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 开源主流选择</text>
+    <text x="50" y="344" font-family="system-ui, sans-serif" font-size="10" fill="#dc2626">✗ 确定性分词</text>
+  </g>
+
+  <!-- WordPiece Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="250" y="90" width="200" height="280" rx="12" fill="#fff"/>
+    <rect x="250" y="90" width="200" height="50" rx="12" fill="url(#wpGrad)"/>
+    <rect x="250" y="128" width="200" height="12" fill="url(#wpGrad)"/>
+    <text x="350" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">WordPiece</text>
+
+    <text x="270" y="165" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">代表模型</text>
+    <text x="270" y="182" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">BERT, DistilBERT, ELECTRA</text>
+
+    <text x="270" y="205" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">核心思想</text>
+    <text x="270" y="222" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">似然驱动的子词合并</text>
+    <text x="270" y="236" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">最大化语言模型概率</text>
+
+    <text x="270" y="259" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">词表大小</text>
+    <text x="270" y="276" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">30K (BERT标准)</text>
+
+    <text x="270" y="299" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">特点</text>
+    <text x="270" y="316" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ Google BERT生态</text>
+    <text x="270" y="330" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ ## 前缀标记子词</text>
+    <text x="270" y="344" font-family="system-ui, sans-serif" font-size="10" fill="#dc2626">✗ 闭源算法细节</text>
+  </g>
+
+  <!-- Unigram Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="470" y="90" width="200" height="280" rx="12" fill="#fff"/>
+    <rect x="470" y="90" width="200" height="50" rx="12" fill="url(#uniGrad)"/>
+    <rect x="470" y="128" width="200" height="12" fill="url(#uniGrad)"/>
+    <text x="570" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">Unigram</text>
+
+    <text x="490" y="165" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">代表模型</text>
+    <text x="490" y="182" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">T5, mT5, ALBERT, XLNet</text>
+
+    <text x="490" y="205" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">核心思想</text>
+    <text x="490" y="222" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">概率语言模型驱动</text>
+    <text x="490" y="236" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">自顶向下剪枝词表</text>
+
+    <text x="490" y="259" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">词表大小</text>
+    <text x="490" y="276" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">32K (可配置)</text>
+
+    <text x="490" y="299" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">特点</text>
+    <text x="490" y="316" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 多种分词可能</text>
+    <text x="490" y="330" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 支持采样解码</text>
+    <text x="490" y="344" font-family="system-ui, sans-serif" font-size="10" fill="#dc2626">✗ 训练较慢</text>
+  </g>
+
+  <!-- SentencePiece Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="690" y="90" width="200" height="280" rx="12" fill="#fff"/>
+    <rect x="690" y="90" width="200" height="50" rx="12" fill="url(#spGrad)"/>
+    <rect x="690" y="128" width="200" height="12" fill="url(#spGrad)"/>
+    <text x="790" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">SentencePiece</text>
+
+    <text x="710" y="165" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">代表模型</text>
+    <text x="710" y="182" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">LLaMA, Mistral, Gemma</text>
+
+    <text x="710" y="205" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">核心思想</text>
+    <text x="710" y="222" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">语言无关的预处理</text>
+    <text x="710" y="236" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">原始文本直接建模</text>
+
+    <text x="710" y="259" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">词表大小</text>
+    <text x="710" y="276" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">32K - 128K (可配置)</text>
+
+    <text x="710" y="299" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">特点</text>
+    <text x="710" y="316" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 无需预分词</text>
+    <text x="710" y="330" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 多语言友好</text>
+    <text x="710" y="344" font-family="system-ui, sans-serif" font-size="10" fill="#16a34a">✓ 空格作为特殊字符▁</text>
+  </g>
+
+  <!-- Example Section -->
+  <rect x="30" y="390" width="840" height="140" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="450" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#334155">分词示例: "Hello world" → Tokens</text>
+
+  <!-- BPE Example -->
+  <rect x="50" y="440" width="180" height="70" rx="6" fill="#f1f5f9"/>
+  <text x="140" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#667EEA" font-weight="600">BPE</text>
+  <text x="140" y="480" text-anchor="middle" font-family="monospace" font-size="10" fill="#475569">["Hello", "Ġworld"]</text>
+  <text x="140" y="498" text-anchor="middle" font-family="monospace" font-size="9" fill="#94a3b8">Ġ = 空格前缀</text>
+
+  <!-- WordPiece Example -->
+  <rect x="250" y="440" width="180" height="70" rx="6" fill="#f1f5f9"/>
+  <text x="340" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#F093FB" font-weight="600">WordPiece</text>
+  <text x="340" y="480" text-anchor="middle" font-family="monospace" font-size="10" fill="#475569">["hello", "world"]</text>
+  <text x="340" y="498" text-anchor="middle" font-family="monospace" font-size="9" fill="#94a3b8">## = 子词后缀</text>
+
+  <!-- Unigram Example -->
+  <rect x="450" y="440" width="180" height="70" rx="6" fill="#f1f5f9"/>
+  <text x="540" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#11998E" font-weight="600">Unigram</text>
+  <text x="540" y="480" text-anchor="middle" font-family="monospace" font-size="10" fill="#475569">["▁Hello", "▁world"]</text>
+  <text x="540" y="498" text-anchor="middle" font-family="monospace" font-size="9" fill="#94a3b8">概率采样可变</text>
+
+  <!-- SentencePiece Example -->
+  <rect x="650" y="440" width="200" height="70" rx="6" fill="#f1f5f9"/>
+  <text x="750" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#FA709A" font-weight="600">SentencePiece</text>
+  <text x="750" y="480" text-anchor="middle" font-family="monospace" font-size="10" fill="#475569">["▁Hello", "▁world"]</text>
+  <text x="750" y="498" text-anchor="middle" font-family="monospace" font-size="9" fill="#94a3b8">▁ = 空格标记</text>
+</svg>
