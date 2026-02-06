@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="templateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="wrongGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Chat Template 工作流程</text>
+  <text x="450" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">正确使用 apply_chat_template vs 手动拼接的对比</text>
+
+  <!-- Input Box -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="80" width="200" height="120" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="50" y="80" width="200" height="35" rx="10" fill="url(#inputGrad)"/>
+    <rect x="50" y="105" width="200" height="10" fill="url(#inputGrad)"/>
+    <text x="150" y="103" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#fff">输入消息</text>
+  </g>
+  <text x="70" y="140" font-family="monospace" font-size="9" fill="#475569">[</text>
+  <text x="80" y="155" font-family="monospace" font-size="9" fill="#475569">{"role": "user",</text>
+  <text x="80" y="168" font-family="monospace" font-size="9" fill="#475569"> "content": "Hello"}</text>
+  <text x="70" y="183" font-family="monospace" font-size="9" fill="#475569">]</text>
+
+  <!-- Template Box -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="80" width="200" height="120" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="350" y="80" width="200" height="35" rx="10" fill="url(#templateGrad)"/>
+    <rect x="350" y="105" width="200" height="10" fill="url(#templateGrad)"/>
+    <text x="450" y="103" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#fff">Jinja2 模板</text>
+  </g>
+  <text x="370" y="140" font-family="monospace" font-size="8" fill="#475569">{% for msg in messages %}</text>
+  <text x="370" y="155" font-family="monospace" font-size="8" fill="#8b5cf6">&lt;|start_header_id|&gt;</text>
+  <text x="370" y="170" font-family="monospace" font-size="8" fill="#475569">{{ msg.role }}</text>
+  <text x="370" y="185" font-family="monospace" font-size="8" fill="#8b5cf6">&lt;|end_header_id|&gt;</text>
+
+  <!-- Arrow 1 -->
+  <line x1="250" y1="140" x2="340" y2="140" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="295" y="130" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">渲染</text>
+
+  <!-- Correct Path -->
+  <text x="450" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#10b981">✓ 正确方式: apply_chat_template</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="260" width="380" height="100" rx="10" fill="#fff" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <text x="70" y="285" font-family="monospace" font-size="10" fill="#10b981" font-weight="600"># 正确代码</text>
+  <text x="70" y="305" font-family="monospace" font-size="10" fill="#475569">text = tokenizer.apply_chat_template(</text>
+  <text x="90" y="320" font-family="monospace" font-size="10" fill="#475569">messages, tokenize=False</text>
+  <text x="70" y="335" font-family="monospace" font-size="10" fill="#475569">)</text>
+
+  <!-- Correct Output -->
+  <line x1="430" y1="310" x2="480" y2="310" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="490" y="260" width="380" height="100" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <text x="510" y="285" font-family="monospace" font-size="9" fill="#10b981" font-weight="600"># 输出结果 (Llama-3)</text>
+  <text x="510" y="305" font-family="monospace" font-size="9" fill="#059669">&lt;|begin_of_text|&gt;</text>
+  <text x="510" y="320" font-family="monospace" font-size="9" fill="#059669">&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;</text>
+  <text x="510" y="335" font-family="monospace" font-size="9" fill="#475569">Hello&lt;|eot_id|&gt;</text>
+
+  <!-- Wrong Path -->
+  <text x="450" y="390" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">✗ 错误方式: 手动拼接字符串</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="410" width="380" height="80" rx="10" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  </g>
+  <text x="70" y="435" font-family="monospace" font-size="10" fill="#ef4444" font-weight="600"># 错误代码 (常见陷阱!)</text>
+  <text x="70" y="455" font-family="monospace" font-size="10" fill="#475569">text = f"User: {msg}\nAssistant:"</text>
+  <text x="70" y="475" font-family="monospace" font-size="10" fill="#94a3b8"># 缺少特殊Token, 格式不对</text>
+
+  <!-- Wrong Output -->
+  <line x1="430" y1="450" x2="480" y2="450" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="490" y="410" width="380" height="80" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  </g>
+  <text x="510" y="435" font-family="monospace" font-size="9" fill="#ef4444" font-weight="600"># 后果</text>
+  <text x="510" y="455" font-family="monospace" font-size="9" fill="#dc2626">• 特殊Token被当作普通文本编码</text>
+  <text x="510" y="472" font-family="monospace" font-size="9" fill="#dc2626">• 模型无法识别停止信号 → 输出乱码</text>
+</svg>
