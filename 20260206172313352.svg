@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="520" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paramGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gradGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="optGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">DeepSpeed ZeRO 三阶段对比</text>
+  <text x="450" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Model States 在 GPU 间的切分策略</text>
+
+  <!-- Legend -->
+  <rect x="280" y="70" width="340" height="35" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="300" y="80" width="50" height="15" rx="3" fill="url(#paramGrad)"/>
+  <text x="360" y="91" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Parameters</text>
+  <rect x="420" y="80" width="50" height="15" rx="3" fill="url(#gradGrad)"/>
+  <text x="480" y="91" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Gradients</text>
+  <rect x="540" y="80" width="50" height="15" rx="3" fill="url(#optGrad)"/>
+  <text x="600" y="91" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Optimizer States</text>
+
+  <!-- ZeRO-0 (No partition) -->
+  <g filter="url(#cardShadow)">
+    <rect x="50" y="120" width="180" height="180" rx="10" fill="#fff"/>
+    <rect x="50" y="120" width="180" height="40" rx="10" fill="#94a3b8"/>
+    <rect x="50" y="150" width="180" height="10" fill="#94a3b8"/>
+    <text x="140" y="147" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">ZeRO-0 (DDP)</text>
+  </g>
+  <!-- GPU 0 -->
+  <rect x="70" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="100" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 0</text>
+  <rect x="78" y="200" width="44" height="20" rx="2" fill="url(#paramGrad)"/>
+  <rect x="78" y="225" width="44" height="20" rx="2" fill="url(#gradGrad)"/>
+  <rect x="78" y="250" width="44" height="25" rx="2" fill="url(#optGrad)"/>
+  <!-- GPU 1 -->
+  <rect x="150" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="180" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 1</text>
+  <rect x="158" y="200" width="44" height="20" rx="2" fill="url(#paramGrad)"/>
+  <rect x="158" y="225" width="44" height="20" rx="2" fill="url(#gradGrad)"/>
+  <rect x="158" y="250" width="44" height="25" rx="2" fill="url(#optGrad)"/>
+
+  <!-- ZeRO-1 (Optimizer partition) -->
+  <g filter="url(#cardShadow)">
+    <rect x="260" y="120" width="180" height="180" rx="10" fill="#fff"/>
+    <rect x="260" y="120" width="180" height="40" rx="10" fill="#f59e0b"/>
+    <rect x="260" y="150" width="180" height="10" fill="#f59e0b"/>
+    <text x="350" y="147" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">ZeRO-1</text>
+  </g>
+  <!-- GPU 0 -->
+  <rect x="280" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="310" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 0</text>
+  <rect x="288" y="200" width="44" height="20" rx="2" fill="url(#paramGrad)"/>
+  <rect x="288" y="225" width="44" height="20" rx="2" fill="url(#gradGrad)"/>
+  <rect x="288" y="250" width="44" height="12" rx="2" fill="url(#optGrad)"/>
+  <!-- GPU 1 -->
+  <rect x="360" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="390" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 1</text>
+  <rect x="368" y="200" width="44" height="20" rx="2" fill="url(#paramGrad)"/>
+  <rect x="368" y="225" width="44" height="20" rx="2" fill="url(#gradGrad)"/>
+  <rect x="368" y="263" width="44" height="12" rx="2" fill="url(#optGrad)"/>
+  <text x="350" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#d97706">优化器状态切分</text>
+
+  <!-- ZeRO-2 (Optimizer + Gradient partition) -->
+  <g filter="url(#cardShadow)">
+    <rect x="470" y="120" width="180" height="180" rx="10" fill="#fff"/>
+    <rect x="470" y="120" width="180" height="40" rx="10" fill="#10b981"/>
+    <rect x="470" y="150" width="180" height="10" fill="#10b981"/>
+    <text x="560" y="147" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">ZeRO-2</text>
+  </g>
+  <!-- GPU 0 -->
+  <rect x="490" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="520" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 0</text>
+  <rect x="498" y="200" width="44" height="20" rx="2" fill="url(#paramGrad)"/>
+  <rect x="498" y="225" width="44" height="10" rx="2" fill="url(#gradGrad)"/>
+  <rect x="498" y="250" width="44" height="12" rx="2" fill="url(#optGrad)"/>
+  <!-- GPU 1 -->
+  <rect x="570" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="600" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 1</text>
+  <rect x="578" y="200" width="44" height="20" rx="2" fill="url(#paramGrad)"/>
+  <rect x="578" y="236" width="44" height="10" rx="2" fill="url(#gradGrad)"/>
+  <rect x="578" y="263" width="44" height="12" rx="2" fill="url(#optGrad)"/>
+  <text x="560" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#059669">+梯度切分</text>
+
+  <!-- ZeRO-3 (Full partition) -->
+  <g filter="url(#cardShadow)">
+    <rect x="680" y="120" width="180" height="180" rx="10" fill="#fff"/>
+    <rect x="680" y="120" width="180" height="40" rx="10" fill="#3b82f6"/>
+    <rect x="680" y="150" width="180" height="10" fill="#3b82f6"/>
+    <text x="770" y="147" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">ZeRO-3</text>
+  </g>
+  <!-- GPU 0 -->
+  <rect x="700" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="730" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 0</text>
+  <rect x="708" y="200" width="44" height="10" rx="2" fill="url(#paramGrad)"/>
+  <rect x="708" y="225" width="44" height="10" rx="2" fill="url(#gradGrad)"/>
+  <rect x="708" y="250" width="44" height="12" rx="2" fill="url(#optGrad)"/>
+  <!-- GPU 1 -->
+  <rect x="780" y="175" width="60" height="110" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="810" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GPU 1</text>
+  <rect x="788" y="211" width="44" height="10" rx="2" fill="url(#paramGrad)"/>
+  <rect x="788" y="236" width="44" height="10" rx="2" fill="url(#gradGrad)"/>
+  <rect x="788" y="263" width="44" height="12" rx="2" fill="url(#optGrad)"/>
+  <text x="770" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">+参数切分</text>
+
+  <!-- Summary Table -->
+  <g filter="url(#cardShadow)">
+    <rect x="50" y="330" width="810" height="170" rx="10" fill="#fff"/>
+  </g>
+
+  <!-- Table Header -->
+  <rect x="50" y="330" width="810" height="35" rx="10" fill="#f1f5f9"/>
+  <rect x="50" y="355" width="810" height="10" fill="#f1f5f9"/>
+  <text x="140" y="353" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">Stage</text>
+  <text x="300" y="353" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">切分内容</text>
+  <text x="460" y="353" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">显存节省</text>
+  <text x="600" y="353" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">通信开销</text>
+  <text x="760" y="353" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">推荐场景</text>
+
+  <!-- Row 1: ZeRO-0 -->
+  <line x1="50" y1="365" x2="860" y2="365" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="388" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">ZeRO-0 (DDP)</text>
+  <text x="300" y="388" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">无</text>
+  <text x="460" y="388" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">-</text>
+  <text x="600" y="388" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#16a34a">最低</text>
+  <text x="760" y="388" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">小模型, 追求速度</text>
+
+  <!-- Row 2: ZeRO-1 -->
+  <line x1="50" y1="400" x2="860" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="423" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#f59e0b" font-weight="500">ZeRO-1</text>
+  <text x="300" y="423" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Optimizer States</text>
+  <text x="460" y="423" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">~4x</text>
+  <text x="600" y="423" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">低</text>
+  <text x="760" y="423" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">中等模型</text>
+
+  <!-- Row 3: ZeRO-2 -->
+  <line x1="50" y1="435" x2="860" y2="435" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="458" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#10b981" font-weight="500">ZeRO-2</text>
+  <text x="300" y="458" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Opt + Gradients</text>
+  <text x="460" y="458" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">~8x</text>
+  <text x="600" y="458" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#f59e0b">中等</text>
+  <text x="760" y="458" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#10b981" font-weight="500">微调首选 ⭐</text>
+
+  <!-- Row 4: ZeRO-3 -->
+  <line x1="50" y1="470" x2="860" y2="470" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3b82f6" font-weight="500">ZeRO-3</text>
+  <text x="300" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Opt + Grad + Params</text>
+  <text x="460" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#16a34a" font-weight="500">线性扩展</text>
+  <text x="600" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#dc2626">高</text>
+  <text x="760" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">70B+超大模型</text>
+</svg>
