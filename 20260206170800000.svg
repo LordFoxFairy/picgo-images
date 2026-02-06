@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="400" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="loadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="cacheGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="trainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0,0 10,3 0,6" fill="#3b82f6"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Datasets 数据处理流水线</text>
+
+  <!-- Step 1: Load -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="70" width="170" height="120" rx="10" fill="#fff"/>
+    <rect x="50" y="70" width="170" height="35" rx="10" fill="url(#loadGrad)"/>
+    <rect x="50" y="95" width="170" height="10" fill="url(#loadGrad)"/>
+    <text x="135" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#fff">1. 数据加载</text>
+  </g>
+  <text x="70" y="130" font-family="monospace" font-size="9" fill="#475569">load_dataset()</text>
+  <text x="70" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• Hub / 本地文件</text>
+  <text x="70" y="163" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• streaming=True</text>
+  <text x="70" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• 自定义脚本</text>
+
+  <!-- Arrow 1 -->
+  <line x1="220" y1="130" x2="270" y2="130" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Step 2: Process -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="70" width="170" height="120" rx="10" fill="#fff"/>
+    <rect x="280" y="70" width="170" height="35" rx="10" fill="url(#processGrad)"/>
+    <rect x="280" y="95" width="170" height="10" fill="url(#processGrad)"/>
+    <text x="365" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#fff">2. 数据处理</text>
+  </g>
+  <text x="300" y="130" font-family="monospace" font-size="9" fill="#475569">.map() .filter()</text>
+  <text x="300" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• batched=True</text>
+  <text x="300" y="163" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• num_proc=8</text>
+  <text x="300" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• remove_columns</text>
+
+  <!-- Arrow 2 -->
+  <line x1="450" y1="130" x2="500" y2="130" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Step 3: Cache -->
+  <g filter="url(#shadow)">
+    <rect x="510" y="70" width="170" height="120" rx="10" fill="#fff"/>
+    <rect x="510" y="70" width="170" height="35" rx="10" fill="url(#cacheGrad)"/>
+    <rect x="510" y="95" width="170" height="10" fill="url(#cacheGrad)"/>
+    <text x="595" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#fff">3. Arrow 缓存</text>
+  </g>
+  <text x="530" y="130" font-family="monospace" font-size="9" fill="#475569">Memory-mapped</text>
+  <text x="530" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• 零拷贝读取</text>
+  <text x="530" y="163" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• ~/.cache/hf/datasets</text>
+  <text x="530" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• 自动指纹去重</text>
+
+  <!-- Arrow 3 -->
+  <line x1="680" y1="130" x2="730" y2="130" stroke="#10b981" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Step 4: Train -->
+  <g filter="url(#shadow)">
+    <rect x="740" y="70" width="130" height="120" rx="10" fill="#fff"/>
+    <rect x="740" y="70" width="130" height="35" rx="10" fill="url(#trainGrad)"/>
+    <rect x="740" y="95" width="130" height="10" fill="url(#trainGrad)"/>
+    <text x="805" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#fff">4. 训练</text>
+  </g>
+  <text x="760" y="130" font-family="monospace" font-size="9" fill="#475569">DataLoader</text>
+  <text x="760" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• Trainer</text>
+  <text x="760" y="163" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• Accelerate</text>
+  <text x="760" y="178" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">• shard()</text>
+
+  <!-- Key Methods Section -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="220" width="820" height="160" rx="10" fill="#fff"/>
+  </g>
+  <text x="450" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#334155">核心方法速查</text>
+
+  <!-- Method Cards -->
+  <!-- map -->
+  <rect x="70" y="270" width="150" height="90" rx="6" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+  <text x="145" y="292" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#4f46e5">.map()</text>
+  <text x="145" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">批量转换数据</text>
+  <text x="80" y="332" font-family="monospace" font-size="8" fill="#64748b">batched=True</text>
+  <text x="80" y="347" font-family="monospace" font-size="8" fill="#64748b">num_proc=8</text>
+
+  <!-- filter -->
+  <rect x="240" y="270" width="150" height="90" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+  <text x="315" y="292" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#059669">.filter()</text>
+  <text x="315" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">条件筛选</text>
+  <text x="250" y="332" font-family="monospace" font-size="8" fill="#64748b">lambda x: len(x) > 10</text>
+  <text x="250" y="347" font-family="monospace" font-size="8" fill="#64748b">num_proc=8</text>
+
+  <!-- interleave -->
+  <rect x="410" y="270" width="150" height="90" rx="6" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="1"/>
+  <text x="485" y="292" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#db2777">interleave_datasets()</text>
+  <text x="485" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">多数据源混合</text>
+  <text x="420" y="332" font-family="monospace" font-size="8" fill="#64748b">[ds1, ds2]</text>
+  <text x="420" y="347" font-family="monospace" font-size="8" fill="#64748b">probabilities=[0.8,0.2]</text>
+
+  <!-- shard -->
+  <rect x="580" y="270" width="150" height="90" rx="6" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
+  <text x="655" y="292" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#d97706">.shard()</text>
+  <text x="655" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">分布式数据分片</text>
+  <text x="590" y="332" font-family="monospace" font-size="8" fill="#64748b">num_shards=100</text>
+  <text x="590" y="347" font-family="monospace" font-size="8" fill="#64748b">index=rank</text>
+
+  <!-- to_tf / to_torch -->
+  <rect x="750" y="270" width="100" height="90" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="800" y="292" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#475569">.with_format()</text>
+  <text x="800" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">格式转换</text>
+  <text x="760" y="332" font-family="monospace" font-size="8" fill="#64748b">"torch"</text>
+  <text x="760" y="347" font-family="monospace" font-size="8" fill="#64748b">"tensorflow"</text>
+</svg>
