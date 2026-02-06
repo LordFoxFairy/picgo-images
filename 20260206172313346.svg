@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD21E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="transGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667EEA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764BA2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38EF7D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tokenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F093FB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5576C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="peftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4FACFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00F2FE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FA709A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FEE140;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#1e293b">Hugging Face 生态系统全景图</text>
+
+  <!-- Central Hub -->
+  <g filter="url(#shadow)">
+    <circle cx="450" cy="300" r="70" fill="url(#hubGrad)"/>
+    <text x="450" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#fff">Hub</text>
+    <text x="450" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">模型仓库 · 版本控制</text>
+  </g>
+
+  <!-- Transformers (Top) -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="80" width="200" height="90" rx="12" fill="url(#transGrad)"/>
+    <text x="450" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">Transformers</text>
+    <text x="450" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)">Pipeline · AutoModel · 量化</text>
+    <text x="450" y="155" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Flash Attention · Generation</text>
+  </g>
+  <line x1="450" y1="170" x2="450" y2="230" stroke="#667EEA" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Datasets (Left) -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="200" width="180" height="90" rx="12" fill="url(#dataGrad)"/>
+    <text x="170" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">Datasets</text>
+    <text x="170" y="258" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)">Streaming · Arrow</text>
+    <text x="170" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Map · Interleave · Shard</text>
+  </g>
+  <line x1="260" y1="250" x2="380" y2="285" stroke="#11998E" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Tokenizers (Right) -->
+  <g filter="url(#shadow)">
+    <rect x="640" y="200" width="180" height="90" rx="12" fill="url(#tokenGrad)"/>
+    <text x="730" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">Tokenizers</text>
+    <text x="730" y="258" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)">BPE · WordPiece · Unigram</text>
+    <text x="730" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Chat Template · Padding</text>
+  </g>
+  <line x1="640" y1="250" x2="520" y2="285" stroke="#F093FB" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- PEFT (Bottom Left) -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="380" width="180" height="90" rx="12" fill="url(#peftGrad)"/>
+    <text x="210" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">PEFT</text>
+    <text x="210" y="438" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)">LoRA · QLoRA · DoRA</text>
+    <text x="210" y="455" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Adapter · Prefix Tuning</text>
+  </g>
+  <line x1="300" y1="410" x2="395" y2="350" stroke="#4FACFE" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Accelerate (Bottom Right) -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="380" width="180" height="90" rx="12" fill="url(#accelGrad)"/>
+    <text x="690" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">Accelerate</text>
+    <text x="690" y="438" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)">DeepSpeed · FSDP</text>
+    <text x="690" y="455" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">ZeRO · Mixed Precision</text>
+  </g>
+  <line x1="600" y1="410" x2="505" y2="350" stroke="#FA709A" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Trainer (Bottom Center) -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="480" width="180" height="80" rx="12" fill="#6366f1"/>
+    <text x="450" y="512" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fff">Trainer API</text>
+    <text x="450" y="535" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)">Callbacks · Evaluation · Resume</text>
+  </g>
+  <line x1="450" y1="370" x2="450" y2="480" stroke="#6366f1" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Workflow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Data Flow Labels -->
+  <text x="50" y="560" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">
+    <tspan font-weight="bold">典型工作流:</tspan>
+    <tspan x="50" dy="18">Hub → Transformers (加载) → Tokenizers (预处理) → Datasets (数据) → PEFT+Accelerate (训练) → Hub (发布)</tspan>
+  </text>
+</svg>
