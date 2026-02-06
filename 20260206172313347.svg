@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="450" viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nlpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667EEA"/>
+      <stop offset="100%" style="stop-color:#764BA2"/>
+    </linearGradient>
+    <linearGradient id="visionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998E"/>
+      <stop offset="100%" style="stop-color:#38EF7D"/>
+    </linearGradient>
+    <linearGradient id="audioGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F093FB"/>
+      <stop offset="100%" style="stop-color:#F5576C"/>
+    </linearGradient>
+    <linearGradient id="multiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FA709A"/>
+      <stop offset="100%" style="stop-color:#FEE140"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="450" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Pipeline 支持的任务类型全景</text>
+  <text x="450" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">pipeline("task_name") 一行代码即可调用</text>
+
+  <!-- NLP Section -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="80" width="410" height="160" rx="12" fill="#fff"/>
+    <rect x="30" y="80" width="410" height="40" rx="12" fill="url(#nlpGrad)"/>
+    <rect x="30" y="108" width="410" height="12" fill="url(#nlpGrad)"/>
+    <text x="235" y="107" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">NLP 文本任务</text>
+  </g>
+  <!-- NLP Tasks -->
+  <g font-family="monospace" font-size="10">
+    <rect x="50" y="135" width="115" height="24" rx="4" fill="#eef2ff"/>
+    <text x="107" y="151" text-anchor="middle" fill="#4f46e5">text-generation</text>
+
+    <rect x="175" y="135" width="115" height="24" rx="4" fill="#eef2ff"/>
+    <text x="232" y="151" text-anchor="middle" fill="#4f46e5">text-classification</text>
+
+    <rect x="300" y="135" width="120" height="24" rx="4" fill="#eef2ff"/>
+    <text x="360" y="151" text-anchor="middle" fill="#4f46e5">token-classification</text>
+
+    <rect x="50" y="165" width="115" height="24" rx="4" fill="#eef2ff"/>
+    <text x="107" y="181" text-anchor="middle" fill="#4f46e5">question-answering</text>
+
+    <rect x="175" y="165" width="115" height="24" rx="4" fill="#eef2ff"/>
+    <text x="232" y="181" text-anchor="middle" fill="#4f46e5">summarization</text>
+
+    <rect x="300" y="165" width="120" height="24" rx="4" fill="#eef2ff"/>
+    <text x="360" y="181" text-anchor="middle" fill="#4f46e5">translation</text>
+
+    <rect x="50" y="195" width="115" height="24" rx="4" fill="#eef2ff"/>
+    <text x="107" y="211" text-anchor="middle" fill="#4f46e5">fill-mask</text>
+
+    <rect x="175" y="195" width="115" height="24" rx="4" fill="#eef2ff"/>
+    <text x="232" y="211" text-anchor="middle" fill="#4f46e5">text2text-generation</text>
+
+    <rect x="300" y="195" width="120" height="24" rx="4" fill="#eef2ff"/>
+    <text x="360" y="211" text-anchor="middle" fill="#4f46e5">zero-shot-classif.</text>
+  </g>
+
+  <!-- Vision Section -->
+  <g filter="url(#shadow)">
+    <rect x="460" y="80" width="410" height="160" rx="12" fill="#fff"/>
+    <rect x="460" y="80" width="410" height="40" rx="12" fill="url(#visionGrad)"/>
+    <rect x="460" y="108" width="410" height="12" fill="url(#visionGrad)"/>
+    <text x="665" y="107" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">Vision 视觉任务</text>
+  </g>
+  <!-- Vision Tasks -->
+  <g font-family="monospace" font-size="10">
+    <rect x="480" y="135" width="115" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="537" y="151" text-anchor="middle" fill="#059669">image-classification</text>
+
+    <rect x="605" y="135" width="115" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="662" y="151" text-anchor="middle" fill="#059669">object-detection</text>
+
+    <rect x="730" y="135" width="120" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="790" y="151" text-anchor="middle" fill="#059669">image-segmentation</text>
+
+    <rect x="480" y="165" width="115" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="537" y="181" text-anchor="middle" fill="#059669">depth-estimation</text>
+
+    <rect x="605" y="165" width="115" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="662" y="181" text-anchor="middle" fill="#059669">image-to-image</text>
+
+    <rect x="730" y="165" width="120" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="790" y="181" text-anchor="middle" fill="#059669">zero-shot-image-cl.</text>
+
+    <rect x="480" y="195" width="115" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="537" y="211" text-anchor="middle" fill="#059669">image-feature-ext.</text>
+
+    <rect x="605" y="195" width="115" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="662" y="211" text-anchor="middle" fill="#059669">mask-generation</text>
+
+    <rect x="730" y="195" width="120" height="24" rx="4" fill="#ecfdf5"/>
+    <text x="790" y="211" text-anchor="middle" fill="#059669">video-classification</text>
+  </g>
+
+  <!-- Audio Section -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="260" width="410" height="160" rx="12" fill="#fff"/>
+    <rect x="30" y="260" width="410" height="40" rx="12" fill="url(#audioGrad)"/>
+    <rect x="30" y="288" width="410" height="12" fill="url(#audioGrad)"/>
+    <text x="235" y="287" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">Audio 音频任务</text>
+  </g>
+  <!-- Audio Tasks -->
+  <g font-family="monospace" font-size="10">
+    <rect x="50" y="315" width="175" height="24" rx="4" fill="#fdf2f8"/>
+    <text x="137" y="331" text-anchor="middle" fill="#db2777">automatic-speech-recognition</text>
+
+    <rect x="235" y="315" width="115" height="24" rx="4" fill="#fdf2f8"/>
+    <text x="292" y="331" text-anchor="middle" fill="#db2777">audio-classification</text>
+
+    <rect x="50" y="345" width="115" height="24" rx="4" fill="#fdf2f8"/>
+    <text x="107" y="361" text-anchor="middle" fill="#db2777">text-to-audio</text>
+
+    <rect x="175" y="345" width="115" height="24" rx="4" fill="#fdf2f8"/>
+    <text x="232" y="361" text-anchor="middle" fill="#db2777">text-to-speech</text>
+
+    <rect x="300" y="345" width="120" height="24" rx="4" fill="#fdf2f8"/>
+    <text x="360" y="361" text-anchor="middle" fill="#db2777">audio-to-audio</text>
+
+    <rect x="50" y="375" width="175" height="24" rx="4" fill="#fdf2f8"/>
+    <text x="137" y="391" text-anchor="middle" fill="#db2777">zero-shot-audio-classification</text>
+  </g>
+
+  <!-- Multimodal Section -->
+  <g filter="url(#shadow)">
+    <rect x="460" y="260" width="410" height="160" rx="12" fill="#fff"/>
+    <rect x="460" y="260" width="410" height="40" rx="12" fill="url(#multiGrad)"/>
+    <rect x="460" y="288" width="410" height="12" fill="url(#multiGrad)"/>
+    <text x="665" y="287" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fff">Multimodal 多模态任务</text>
+  </g>
+  <!-- Multimodal Tasks -->
+  <g font-family="monospace" font-size="10">
+    <rect x="480" y="315" width="160" height="24" rx="4" fill="#fffbeb"/>
+    <text x="560" y="331" text-anchor="middle" fill="#d97706">document-question-answering</text>
+
+    <rect x="650" y="315" width="160" height="24" rx="4" fill="#fffbeb"/>
+    <text x="730" y="331" text-anchor="middle" fill="#d97706">visual-question-answering</text>
+
+    <rect x="480" y="345" width="115" height="24" rx="4" fill="#fffbeb"/>
+    <text x="537" y="361" text-anchor="middle" fill="#d97706">image-to-text</text>
+
+    <rect x="605" y="345" width="115" height="24" rx="4" fill="#fffbeb"/>
+    <text x="662" y="361" text-anchor="middle" fill="#d97706">image-text-to-text</text>
+
+    <rect x="730" y="345" width="120" height="24" rx="4" fill="#fffbeb"/>
+    <text x="790" y="361" text-anchor="middle" fill="#d97706">feature-extraction</text>
+
+    <rect x="480" y="375" width="115" height="24" rx="4" fill="#fffbeb"/>
+    <text x="537" y="391" text-anchor="middle" fill="#d97706">table-qa</text>
+
+    <rect x="605" y="375" width="115" height="24" rx="4" fill="#fffbeb"/>
+    <text x="662" y="391" text-anchor="middle" fill="#d97706">conversational</text>
+
+    <rect x="730" y="375" width="120" height="24" rx="4" fill="#fffbeb"/>
+    <text x="790" y="391" text-anchor="middle" fill="#d97706">sentence-similarity</text>
+  </g>
+
+  <!-- Footer Note -->
+  <text x="450" y="438" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">
+    完整列表见: huggingface.co/docs/transformers/main_classes/pipelines
+  </text>
+</svg>
